@@ -6,7 +6,7 @@ Jenkins Windows Build Support is a discord bot for remotely controlling the Jenk
 The bot should be setup to run on Windows startup. <br/>
 Run the following commands in terminal if you need to manually start it.
 ```bash
-cd C:\Users\Jenkins\Documents\Jenkins-Windows-Build-Support
+cd C:\Users\Jenkins\Documents\GitHub\Jenkins-Windows-Build-Support
 py main.py 
 ```
 
