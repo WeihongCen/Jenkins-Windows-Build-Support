@@ -30,7 +30,7 @@ RED = 0xf04747
 GRAY = 0x4f545c
 
 DISCORD_EMBED_LIMIT = 5800 # left 200 for fields that are not changelogs
-DISCORD_EMBED_VALUE_LIMIT = 1024
+DISCORD_EMBED_VALUE_LIMIT = 1024 # the maximum length that an embed field can be
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly',
