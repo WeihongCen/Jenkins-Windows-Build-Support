@@ -209,9 +209,14 @@ async def log(interaction, build:int = -1):
 
 
 @BOT.tree.command(name="windows_start_build", description="Build the latest Saleblazers Default Build")
-async def start_build(interaction):
+@app_commands.describe(BuildBranch="Choose from 'Dev' or 'Merge', default is 'Dev'")
+async def start_build(interaction, BuildBranch: str = "Dev"):
     try:
-        response = requests.post(f"http://jenkins_as:{API_TOKEN}@{DEFAULT_BUILD_PATH}/build?token={BUILD_TOKEN}")
+        BuildBranchOnJenkins = "BudgetHero"
+        if BuildBranch == "Merge":
+            BuildBranchOnJenkins = "BudgetHeroMerge"
+
+        response = requests.post(f"http://jenkins_as:{API_TOKEN}@{DEFAULT_BUILD_PATH}/build?token={BUILD_TOKEN}&BuildBranch={BuildBranchOnJenkins}")
         if response.status_code == 201:
             embed = Embed(description="Build request sent.", color=GREEN)
             await interaction.response.send_message(embed=embed)
