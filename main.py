@@ -209,11 +209,11 @@ async def log(interaction, build:int = -1):
 
 
 @BOT.tree.command(name="windows_start_build", description="Build the latest Saleblazers Default Build")
-@app_commands.describe(BuildBranch="Choose from 'Dev' or 'Merge', default is 'Dev'")
-async def start_build(interaction, BuildBranch: str = "Dev"):
+@app_commands.describe(build_branch="Choose from 'Dev' or 'Merge', default is 'Dev'")
+async def start_build(interaction, build_branch: str = "Dev"):
     try:
         BuildBranchOnJenkins = "BudgetHero"
-        if BuildBranch == "Merge":
+        if build_branch == "Merge":
             BuildBranchOnJenkins = "BudgetHeroMerge"
 
         response = requests.post(f"http://jenkins_as:{API_TOKEN}@{DEFAULT_BUILD_PATH}/build?token={BUILD_TOKEN}&BuildBranch={BuildBranchOnJenkins}")
